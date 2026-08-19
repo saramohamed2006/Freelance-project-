@@ -16,5 +16,5 @@ client : {
     enum : ["pending","accepted","completed"],
     default : "pending"
     }
-})
+},{timestamps :true})
 export const ordersschemas=mongoose.model("orders",orderSchema)

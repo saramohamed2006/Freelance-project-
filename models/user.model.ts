@@ -4,7 +4,6 @@ const userSchema=new mongoose.Schema({
 fullName:{
     type:String,
     required:true,
-    
 },
 email : {
     type:String,
@@ -14,13 +13,14 @@ email : {
 password:{
     type:String,
     required:true,
+    select :false
 },
 role :{
     type:String,
     required:true,
     enum : ["freelancer", "client"]
-}
- 
-})
+}},
+ {timestamps :true})
 
-export const userschema=mongoose.model("user",userSchema);
+
+export const user=mongoose.model("user",userSchema);

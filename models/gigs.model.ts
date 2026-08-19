@@ -19,7 +19,8 @@ category :{
 },
 owner :{
 type: mongoose.Schema.Types.ObjectId,
- ref:'user'
+ ref:'user',
+ required : true
 }
-})
-export const Gigschema=mongoose.model("Gigs",GigSchema);
+},{timestamps :true})
+export const Gigs=mongoose.model("Gigs",GigSchema);
