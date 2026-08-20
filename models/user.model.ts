@@ -5,7 +5,7 @@ fullName:{
     type:String,
     required:true,
 },
-email : {
+email: {
     type:String,
     required:true,
     unique:true
@@ -15,7 +15,7 @@ password:{
     required:true,
     select :false
 },
-role :{
+role:{
     type:String,
     required:true,
     enum : ["freelancer", "client"]
