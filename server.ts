@@ -1,8 +1,12 @@
 import "dotenv/config";
+import jwt from "jsonwebtoken"
+import bcrypt from "bcrypt"
 import express, { Router } from "express";
 import { connectDB } from "./config/db.js";
 import {router} from "./routes/freelancer.routes.js"
+
 import { orderRouter } from "./routes/order.routes.js";
+
 
 
 

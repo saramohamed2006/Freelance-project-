@@ -1,10 +1,17 @@
 import { Request,Response } from "express";
 import {user}from "../models/user.model";
 import {Gigs} from "../models/gigs.model";
-// this function will modified in future after biuld part authentication
+import{authenticate} from "../middlewares/auth.middlewares"
  export const createGigs =async(req:Request,res:Response)=>{
     try {
- const creategigs= await Gigs.create(req.body)
+        const { title,description,price,category}= req.body;
+ const creategigs= await Gigs.create( {
+title,
+description,
+price,
+category,
+owner : req.user.id
+ })
 return res.status(201).json({
     msg : " Gig created successfully",
     creategigs
@@ -19,6 +26,7 @@ res.status(400).json({
 }
 
  }
+
  // this function to test  function create gig untill build signup and authentication
   export const createuser =async(req:Request,res:Response)=>{
     try {
@@ -81,3 +89,6 @@ res.status(400).json({
     res.status(200).json(gigs);
 
   };
+
+ 
+
