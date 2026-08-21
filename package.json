@@ -4,7 +4,8 @@
   "description": "Project overview :\r This project provides the core API endpoints, database management, and business logic to support the platform.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev":"nodemon --exec tsx  server.ts"
   },
   "repository": {
     "type": "git",
