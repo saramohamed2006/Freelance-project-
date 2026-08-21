@@ -21,7 +21,10 @@ import { Document,Schema } from "mongoose";
  *           description: id of client
  *         status:
  *           type: string
- *           enum:[pending ,accepted,completed]
+ *           enum:
+ *             - pending
+ *             - accepted
+ *             - completed
  *           description: status of the order
  *       
  *         

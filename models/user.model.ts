@@ -16,14 +16,16 @@ import { Document,Schema } from "mongoose";
  *         - role
  *       properties:
  *         fullName:
- *           type: string
+ *           type: String
  *           description: fullname of user
  *         password:
  *           type: string
  *           description: password of user
  *         role:
  *           type: string
- *           enum:[freelancer,client]
+ *           enum:
+ *            - freelancer
+ *            - client
  *           description: role of user must be a freelancer or client
  *         email:
  *           type: string

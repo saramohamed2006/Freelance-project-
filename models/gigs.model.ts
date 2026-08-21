@@ -31,10 +31,10 @@ import mongoose from "mongoose";
  * 
  * 
  *       example:
- *        title: "Full Stack Web Development"
+ *         title: "Full Stack Web Development"
  *         description: "I will build a complete web application using Node.js and TypeScript"
- *        price: 150
- *        category: "Programming & Tech"
+ *         price: 150
+ *         category: "Programming & Tech"
  *         owner: "64f1a2b3c4d5e6f7a8b9c0d1"
  * 
  */
