@@ -47,7 +47,7 @@ res.status(400).json({
 
 
 
-  export const searchGigs = async (req:Request,res:Response): Promise<void> {
+  export const searchGigs = async (req:Request,res:Response): Promise<void> => {
 
     const {title, category, minPrice, maxPrice, freeLancerName} = req.query;
     const filter:any = {};
@@ -72,7 +72,7 @@ res.status(400).json({
         filter.price = priceFilter;
     }
 
-    if(freeLancerName) { 
+    if(typeof freeLancerName === "string") { 
         const freeLancer = await user.findOne({
             fullName: freeLancerName
         });

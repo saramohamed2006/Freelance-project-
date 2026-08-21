@@ -58,6 +58,12 @@ export const getOrderById = async (req:Request, res:Response): Promise<void> => 
         }); return;
     }
 
+    if(!order.client) {
+        res.status(400).json({
+            message: "order has no client"
+        }); return;
+    }
+
 
     if(order.client.toString() !== req.user.id && gig.owner.toString() !== req.user.id) {
         res.status(400).json({
@@ -133,6 +139,12 @@ export const cancelOrder = async (req:Request,res:Response): Promise<void> => {
     if(order.status == "completed") {
         res.status(400).json({
             message: "request rejected"
+        }); return;
+    }
+
+    if(!order.client) {
+        res.status(400).json({
+            message: "order has no client"
         }); return;
     }
 
