@@ -29,8 +29,7 @@ export const createOrder = async ( req:Request, res:Response ): Promise<void> =>
     res.status(200).json(order)
 };
 
-//not done yet need the clientid from auth middleware to first check if an order was made by a user
-//second if it wasn't then we create the order successfully 
+
 
 export const getMyOrders = async (req:Request, res:Response): Promise<void> => {
     const clientId = req.user.id;
