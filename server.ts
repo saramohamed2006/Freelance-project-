@@ -1,4 +1,7 @@
-import "dotenv/config";
+import dns from "dns";
+dns.setServers(["8.8.8.8"]);
+import dotenv from "dotenv";
+dotenv.config();
 import jwt from "jsonwebtoken"
 import bcrypt from "bcrypt"
 import express from "express";
