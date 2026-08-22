@@ -5,7 +5,6 @@ import {
     createOrder,
     getMyOrders,
     getOrderById,
-    updateOrderStatus,
     cancelOrder
 }
  from "../controllers/order.controls";
@@ -99,49 +98,6 @@ import {
  */
 
  orderRouter.get("/:id",authenticate,getOrderById);
-
-/**
- * @swagger
- * /orders/{id}/status:
- *   patch:
- *     tags:
- *       - Orders
- *     summary: update order status
- *     parameters:
- *       - in: path
- *         name: id
- *         schema:
- *           type: string
- *         required: true
- *         description: the id of the order
- *     requestBody:
- *       required: true
- *       content:
- *         application/json:
- *           schema:
- *             type: object
- *             required:
- *               - status
- *             properties:
- *               status:
- *                 type: string
- *                 description: the new status of the order
- *                 enum:
- *                   - pending
- *                   - accepted
- *                   - completed
- *     responses:
- *       200:
- *         description: order status updated 
- *       400:
- *         description: invalid status or user is not allowed to update order
- *       404:
- *         description: order or gig not found
- *       500:
- *         description: Some server error!
- */
-
- orderRouter.patch("/:id/status",authenticate,updateOrderStatus);
 
 /**
  * @swagger

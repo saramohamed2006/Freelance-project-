@@ -7,10 +7,7 @@ import{authenticate, create_token} from "../middlewares/auth.middlewares"
 
  export const signup=async(req:Request ,res:Response) =>{
  try { 
- const { fullName,email,password} = req.body;
- if ((!fullName) || (!email) || (!password)) {
- return res.status(400).json({ message: "All fields are required" });
- }
+ const { fullName,email,password,role} = req.body;
  const userExist =await user.findOne({email});
  if (userExist){
  return res.status(400).json({ message: " invaild email or user already exist " });
@@ -20,6 +17,7 @@ import{authenticate, create_token} from "../middlewares/auth.middlewares"
  fullName,
  email,
  password:hashedPassword,
+ role
  });
  res.status(201).json({ message: "User registered successfully" });
  } catch (error) {
@@ -30,9 +28,6 @@ export const SignIn =async(req:Request ,res:Response) =>{
 try {
 const { email,password} =req.body;
  const userExist =await user.findOne({email}).select("password");
- if (!email || !password){
-     return res.status(400).json({ message: "All fields are required " });
- }
  if (!userExist){
  return res.status(400).json({ message: " invaild email or password"  });
  
@@ -53,7 +48,7 @@ maxAge:60*60*1000
    })
  
 }catch(error){
-res.status(500).json({ message: "server error" });
+res.status(500).json({ message: " invaild role or server error" });
 }
 
 

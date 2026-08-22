@@ -1,6 +1,8 @@
 import { Router } from "express";
 export const router_user = Router();
 import { SignIn,signup ,SignOut} from "../controllers/user.controler";
+import { validateSignUp, validateSignIn } from "../middlewares/validation.middleware";
+
 // TAGS:
 
 /**
@@ -38,7 +40,7 @@ import { SignIn,signup ,SignOut} from "../controllers/user.controler";
  *       500:
  *         description: Some server error!
  */
-router_user.post('/signup',signup);
+router_user.post('/signup',validateSignUp,signup);
 
 /**
  * @swagger
@@ -65,7 +67,7 @@ router_user.post('/signup',signup);
  *       500:
  *         description: Some server error!
  */
-router_user.post('/signIN',SignIn);
+router_user.post('/signIN',validateSignIn,SignIn);
 
 /**
  * @swagger

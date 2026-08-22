@@ -52,4 +52,4 @@ client : {
     default : "pending"
     }
 },{timestamps :true})
-export const ordersschemas=mongoose.model("orders",orderSchema)
+export const order=mongoose.model("order",orderSchema)
