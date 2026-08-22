@@ -79,7 +79,7 @@ router.post('/',authenticate,authorize("freelancer"),validateGig,createGigs)
  * @swagger
  * /gigs/:id:
  *   delete:
- *      tags: 
+ *     tags: 
  *       - Gigs
  *     summary: Delete a gig by id
  *     parameters:
